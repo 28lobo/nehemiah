@@ -1,0 +1,8 @@
+{
+  "track_id": "migrate_homepage_20260203",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-02-03T00:00:00Z",
+  "updated_at": "2026-02-03T00:00:00Z",
+  "description": "Migrate the prototype HTML from prototypes/homepage-variant-2.html into a Next.js Page component. Use the existing Tailwind config."
+}
