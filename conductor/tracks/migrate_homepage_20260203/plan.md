@@ -1,13 +1,13 @@
 # Implementation Plan: Migrate Homepage Prototype
 
 ## Phase 1: Component Scaffolding & Initial Migration
-- [ ] Task: Create empty component files
-    - [ ] Create `components/layout/Header.tsx`
-    - [ ] Create `components/layout/Footer.tsx`
-    - [ ] Create `components/home/MasonryGrid.tsx`
-- [ ] Task: Move prototype HTML to `app/page.tsx`
-    - [ ] Read the content of `prototypes/homepage-variant-2.html`.
-    - [ ] Replace the content of `app/page.tsx` with the prototype's HTML, adapting it for JSX syntax.
+- [x] Task: Create empty component files
+    - [x] Create `components/layout/Header.tsx`
+    - [x] Create `components/layout/Footer.tsx`
+    - [x] Create `components/home/MasonryGrid.tsx`
+- [x] Task: Move prototype HTML to `app/page.tsx`
+    - [x] Read the content of `prototypes/homepage-variant-2.html`.
+    - [x] Replace the content of `app/page.tsx` with the prototype's HTML, adapting it for JSX syntax.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Component Scaffolding & Initial Migration' (Protocol in workflow.md)
 
 ## Phase 2: Component Implementation & TDD
