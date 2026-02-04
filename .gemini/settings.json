@@ -8,7 +8,7 @@
             "command": "npx",
             "args": ["-y", "stitch-mcp"],
             "env": {
-                "STITCH_API_KEY": "AQ.Ab8RN6LeMuaMdd9MRjqaTpwnJAuFyJuXM3R35UFGKv2Zx-Yt9A"
+                "STITCH_API_KEY": ""
             }
         }
     }
