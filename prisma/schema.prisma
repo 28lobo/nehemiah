@@ -22,10 +22,16 @@ model User {
 }
 
 model Post {
-  id        Int     @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   title     String
-  content   String?
-  published Boolean @default(false)
+  slug      String   @unique
+  category  String
+  content   String?  // Make sure content is optional or required as needed
+  published Boolean  @default(false)
   authorId  Int
-  author    User    @relation(fields: [authorId], references: [id])
+  author    User     @relation(fields: [authorId], references: [id])
+  
+  // --- ADD THESE LINES ---
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

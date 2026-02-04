@@ -58,13 +58,13 @@ export const Footer = () => {
         <p className="text-xs text-gray-400">© 2025 Nehemiah&apos;s House. Built for the builders of tomorrow.</p>
         <div className="flex gap-6">
           <a className="text-gray-400 hover:text-primary transition-colors" href="#">
-            <span className="material-symbols-outlined text-xl">share</span>
+            <span className="material-symbols-outlined text-xl"></span>
           </a>
           <a className="text-gray-400 hover:text-primary transition-colors" href="#">
-            <span className="material-symbols-outlined text-xl">public</span>
+            <span className="material-symbols-outlined text-xl"></span>
           </a>
           <a className="text-gray-400 hover:text-primary transition-colors" href="#">
-            <span className="material-symbols-outlined text-xl">mail</span>
+            <span className="material-symbols-outlined text-xl"></span>
           </a>
         </div>
       </div>
