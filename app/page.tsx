@@ -11,7 +11,7 @@ const Home = () => {
               <div className="text-primary">
                 <span className="material-symbols-outlined text-3xl">fort</span>
               </div>
-              <h2 className="text-xl font-bold tracking-tight">Nehemiah's House</h2>
+              <h2 className="text-xl font-bold tracking-tight">Nehemiah&apos;s House</h2>
             </div>
             <nav className="hidden lg:flex items-center gap-8">
               <a className="text-sm font-medium hover:text-primary transition-colors" href="#">Manifesto</a>
@@ -133,7 +133,7 @@ const Home = () => {
             <div className="p-8 bg-primary/5 dark:bg-primary/20 border-b border-primary/10">
               <span className="material-symbols-outlined text-primary text-4xl mb-4">format_quote</span>
               <blockquote className="text-2xl font-bold italic leading-tight text-gray-800 dark:text-gray-200">
-                "A city is only as strong as the integrity of its builders and the vision of its watchmen."
+                &quot;A city is only as strong as the integrity of its builders and the vision of its watchmen.&quot;
               </blockquote>
             </div>
             <div className="p-6">
@@ -190,7 +190,7 @@ const Home = () => {
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center gap-3 mb-6">
               <span className="material-symbols-outlined text-primary text-3xl">fort</span>
-              <h2 className="text-xl font-bold tracking-tight">Nehemiah's House</h2>
+              <h2 className="text-xl font-bold tracking-tight">Nehemiah&apos;s House</h2>
             </div>
             <p className="text-sm text-gray-500 leading-relaxed">Dedicated to the restoration of leadership through the intersection of visionary political thought and grounded religious integrity.</p>
           </div>
@@ -222,7 +222,7 @@ const Home = () => {
           </div>
         </div>
         <div className="max-w-300 mx-auto mt-16 pt-8 border-t border-gray-100 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-gray-400">© 2025 Nehemiah's House. Built for the builders of tomorrow.</p>
+          <p className="text-xs text-gray-400">© 2025 Nehemiah&apos;s House. Built for the builders of tomorrow.</p>
           <div className="flex gap-6">
             <a className="text-gray-400 hover:text-primary" href="#"><span className="material-symbols-outlined text-xl">share</span></a>
             <a className="text-gray-400 hover:text-primary" href="#"><span className="material-symbols-outlined text-xl">public</span></a>
