@@ -1,4 +1,5 @@
 import React from 'react';
+import  prisma  from '@/lib/prisma'
 // Use relative paths if your aliases aren't set up yet
 import { Header } from '../components/layout/Header';
 import { MasonryGrid } from '../components/home/MasonryGrid';
@@ -6,7 +7,16 @@ import { NewsTicker } from '../components/home/NewsTicker';
 import { CategoryChips } from '../components/home/CategoryChips';
 import { Footer } from '../components/layout/Footer';
 
-export default function Home() {
+
+export const revalidate = 60 // Optional: Cache data for 60 seconds
+
+export default async function Home() {
+  // 1. Fetch the posts from the database
+  const posts = await prisma.post.findMany({
+    where: { published: true },
+    orderBy: { createdAt: 'desc' },
+    take: 20, // Limit to recent posts
+  })
   return (
     <div className="relative flex flex-col w-full">
       <Header />
@@ -40,7 +50,9 @@ export default function Home() {
 
         <NewsTicker />
         <CategoryChips />
-        <MasonryGrid />
+        <div className="container mx-auto px-4 py-8">
+         <MasonryGrid posts={posts} />
+       </div>
       </main>
 
       {/* Add Footer when you are ready */}
