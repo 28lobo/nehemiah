@@ -1,6 +1,7 @@
-import  prisma  from '@/lib/prisma'
+import prisma  from '@/lib/prisma'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import ReactMarkdown from 'react-markdown' // <--- Import
 
 export default async function BlogPostPage({
   params,
@@ -37,8 +38,6 @@ export default async function BlogPostPage({
         <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 leading-tight">
           {post.title}
         </h1>
-        
-        {/* FIXED: Changed publishedAt to createdAt */}
         {post.createdAt && (
             <p className="text-gray-500">
                 {new Date(post.createdAt).toLocaleDateString()}
@@ -46,9 +45,13 @@ export default async function BlogPostPage({
         )}
       </header>
 
-      <div className="prose prose-lg prose-blue max-w-none text-gray-800 leading-relaxed">
-        <p className="whitespace-pre-wrap">{post.content}</p>
+      {/* The 'prose' class now works because of the @plugin line in globals.css */}
+      <div className="prose prose-lg prose-blue max-w-none">
+        <ReactMarkdown>
+          {post.content || ''}
+        </ReactMarkdown>
       </div>
+
     </article>
   )
 }
