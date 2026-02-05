@@ -1,63 +1,54 @@
-import React from 'react';
-import { notFound } from 'next/navigation';
-import prisma from "@/lib/prisma"; // Ensure this path matches your project
-import { Header } from '../../../components/layout/Header';
-import { Footer } from '../../../components/layout/Footer';
+import  prisma  from '@/lib/prisma'
+import { notFound } from 'next/navigation'
+import Link from 'next/link'
 
-// Next.js 16: Define params as a Promise
-type Props = {
-  params: Promise<{ slug: string }>;
-};
+export default async function BlogPostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
 
-export default async function BlogPost({ params }: Props) {
-  // 1. Await the params (Next.js 16 requirement)
-  const { slug } = await params;
-
-  // 2. Fetch the specific post from the database
   const post = await prisma.post.findUnique({
-    where: { 
-      slug: slug 
-    },
-    include: {
-      author: true, // Includes author details if you need them
-    },
-  });
+    where: { slug: slug },
+  })
 
-  // 3. Handle 404 if post doesn't exist
   if (!post) {
-    notFound();
+    notFound()
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      
-      <main className="max-w-200 mx-auto w-full px-6 py-20 grow">
-        <div className="mb-8">
-          <span className="text-primary font-bold tracking-widest uppercase text-xs">
-            {post.category || "Blog Post"}
+    <article className="max-w-3xl mx-auto px-4 py-12">
+      <div className="mb-8">
+        <Link 
+          href="/" 
+          className="text-sm text-gray-500 hover:text-blue-600 transition-colors"
+        >
+          ← Back to Home
+        </Link>
+      </div>
+
+      <header className="mb-8 border-b pb-8">
+        <div className="flex gap-2 mb-4">
+          <span className="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wider rounded-full">
+            {post.category || 'General'}
           </span>
-          <h1 className="text-4xl md:text-5xl font-black mt-4 mb-4 capitalize leading-tight">
-            {post.title}
-          </h1>
-          {post.author && (
-            <div className="flex items-center gap-2 text-sm text-gray-500">
-              <span>By {post.author.name}</span>
-              <span>•</span>
-              {/* Format date if createdAt exists */}
-              <span>{new Date(post.createdAt).toLocaleDateString()}</span>
-            </div>
-          )}
         </div>
+        <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 leading-tight">
+          {post.title}
+        </h1>
+        
+        {/* FIXED: Changed publishedAt to createdAt */}
+        {post.createdAt && (
+            <p className="text-gray-500">
+                {new Date(post.createdAt).toLocaleDateString()}
+            </p>
+        )}
+      </header>
 
-        {/* Render the content */}
-        <div className="prose dark:prose-invert prose-lg">
-          {/* If your content is Markdown/HTML, you might need a parser here later */}
-          <div className="whitespace-pre-wrap">{post.content}</div>
-        </div>
-      </main>
-
-      <Footer />
-    </div>
-  );
+      <div className="prose prose-lg prose-blue max-w-none text-gray-800 leading-relaxed">
+        <p className="whitespace-pre-wrap">{post.content}</p>
+      </div>
+    </article>
+  )
 }
